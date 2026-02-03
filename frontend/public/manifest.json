@@ -1,0 +1,6 @@
+{ 
+  "name": "Free-Companion-Code", 
+  "short_name": "FCC", 
+  "start_url": "/", 
+  "display": "standalone" 
+} 

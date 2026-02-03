@@ -1,0 +1,29 @@
+version: '3.8' 
+services: 
+  db: 
+    image: postgres:15 
+    environment: 
+      POSTGRES_DB: free_companion_code 
+      POSTGRES_USER: admin 
+      POSTGRES_PASSWORD: password123 
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data 
+ 
+  django: 
+    build: 
+      context: . 
+      dockerfile: docker/Django.Dockerfile 
+    ports: 
+      - "8000:8000" 
+    depends_on: 
+      - db 
+ 
+  fastapi-auth: 
+    build: 
+      context: . 
+      dockerfile: docker/FastAPI.Dockerfile 
+    ports: 
+      - "8001:8001" 
+ 
+volumes: 
+  postgres_data: 
